@@ -13,9 +13,17 @@ The function should:
   2. Create and return an object using the received values  
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
-}
+function createMenuItem(menuName, menuPrice, menuCategory){
+    return {
+      name: menuName,
+      price: menuPrice,
+      category: menuCategory
+     };
+  }
+console.log(createMenuItem('machiatto', 8, 'drinks' ));
+
+
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Test your createMenuItems function by doing the following:
@@ -26,7 +34,13 @@ Test your createMenuItems function by doing the following:
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
 
+console.log(createMenuItem('chinese', 14, 'food' ));
+console.log(createMenuItem('apple', 2, 'fruit' ));
+console.log(createMenuItem('wine', 13, 'alcohol' ));
 
+console.log(createMenuItem('student' ));
+console.log(createMenuItem('teacher' ));
+console.log(createMenuItem('everyone else' ));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 You're having a lunch special! 25% off for teachers and students, 10% off for everyone else. Add a method to the 
@@ -41,14 +55,22 @@ Using the burger object below do the following:
   For example: burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2
 */
 
-export const burger = {
+const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
+  discount: function(person) {
+   let totalPrice = 0 
+    if(person === "teacher" || person === "student"){
+        totalPrice = burger.price - (burger.price * 0.25)
+    } else{
+      totalPrice = burger.price - (burger.price * 0.1)
+    }
+    return totalPrice
+  }
 }
 
-
+burger.discount("public")
 
 ///////////////Reviews (MVP)///////////////////
 const reviews = [
